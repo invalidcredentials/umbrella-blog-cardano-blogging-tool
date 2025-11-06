@@ -45,7 +45,8 @@ package-lock.json
 yarn.lock
 
 # Composer
-vendor/
+# Note: Our vendor files are custom PHP libraries, not composer packages
+# So we keep them in the repo
 composer.lock
 
 # Build artifacts
