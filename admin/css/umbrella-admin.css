@@ -1,0 +1,605 @@
+/**
+ * Umbrella Blog Admin Theme
+ * Cyberpunk glassmorphic design system
+ */
+
+/* ============================================
+   CSS VARIABLES - Theme Configuration
+   ============================================ */
+:root {
+    /* Colors - Cyberpunk Palette */
+    --umb-bg-primary: #0a0a0f;
+    --umb-bg-secondary: #1a1a2e;
+    --umb-bg-tertiary: #2a2a3e;
+
+    /* Glassmorphic surfaces */
+    --umb-glass-bg: rgba(255, 255, 255, 0.03);
+    --umb-glass-border: rgba(0, 230, 255, 0.15);
+    --umb-glass-hover: rgba(255, 255, 255, 0.06);
+
+    /* Neon accents */
+    --umb-cyan: #00E6FF;
+    --umb-magenta: #FF00E6;
+    --umb-cyan-glow: rgba(0, 230, 255, 0.3);
+    --umb-magenta-glow: rgba(255, 0, 230, 0.3);
+
+    /* Text colors */
+    --umb-text-primary: #e0e0e0;
+    --umb-text-secondary: #a0a0a0;
+    --umb-text-muted: #666666;
+
+    /* Status colors */
+    --umb-success: #00ff88;
+    --umb-warning: #ffaa00;
+    --umb-danger: #ff3366;
+    --umb-info: #00E6FF;
+
+    /* Spacing system */
+    --umb-space-xs: 4px;
+    --umb-space-sm: 8px;
+    --umb-space-md: 16px;
+    --umb-space-lg: 24px;
+    --umb-space-xl: 32px;
+    --umb-space-2xl: 48px;
+
+    /* Border radius */
+    --umb-radius-sm: 4px;
+    --umb-radius-md: 8px;
+    --umb-radius-lg: 12px;
+    --umb-radius-xl: 16px;
+    --umb-radius-full: 9999px;
+
+    /* Transitions */
+    --umb-transition-fast: 150ms ease;
+    --umb-transition-base: 250ms ease;
+    --umb-transition-slow: 400ms ease;
+
+    /* Shadows */
+    --umb-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --umb-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --umb-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --umb-shadow-glow-cyan: 0 0 20px var(--umb-cyan-glow);
+    --umb-shadow-glow-magenta: 0 0 20px var(--umb-magenta-glow);
+}
+
+/* ============================================
+   BASE STYLES - Page Background
+   ============================================ */
+
+/* Override WordPress admin body background */
+body.wp-admin {
+    background: #0a0a0f !important;
+}
+
+#wpcontent, #wpbody, #wpbody-content {
+    background: #0a0a0f !important;
+}
+
+/* Also override the wrap background */
+.wrap {
+    background: transparent !important;
+}
+
+.umbrella-admin-page {
+    background: linear-gradient(135deg, var(--umb-bg-primary) 0%, var(--umb-bg-secondary) 100%);
+    min-height: 100vh;
+    padding: var(--umb-space-lg);
+    color: var(--umb-text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: -20px 0 -20px -20px; /* Remove WordPress admin white borders, keep right margin */
+    width: calc(100% + 20px); /* Cover left side only */
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Ensure full coverage with pseudo-element */
+.umbrella-admin-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--umb-bg-primary) 0%, var(--umb-bg-secondary) 100%);
+    z-index: -1;
+}
+
+.umbrella-admin-page * {
+    box-sizing: border-box;
+}
+
+/* ============================================
+   GLASSMORPHIC CARD SYSTEM
+   ============================================ */
+.umb-card {
+    background: var(--umb-glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--umb-glass-border);
+    border-radius: var(--umb-radius-lg);
+    padding: var(--umb-space-lg);
+    margin-bottom: var(--umb-space-lg);
+    box-shadow: var(--umb-shadow-md);
+    transition: all var(--umb-transition-base);
+}
+
+.umb-card:hover {
+    background: var(--umb-glass-hover);
+    border-color: var(--umb-cyan);
+    box-shadow: var(--umb-shadow-lg), var(--umb-shadow-glow-cyan);
+    transform: translateY(-2px);
+}
+
+.umb-card-hero {
+    background: linear-gradient(135deg, rgba(0, 230, 255, 0.05) 0%, rgba(255, 0, 230, 0.05) 100%);
+    border: 2px solid var(--umb-cyan);
+    box-shadow: var(--umb-shadow-lg), var(--umb-shadow-glow-cyan);
+    position: relative;
+    overflow: hidden;
+}
+
+.umb-card-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 230, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 120s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.umb-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--umb-space-lg);
+    padding-bottom: var(--umb-space-md);
+    border-bottom: 1px solid var(--umb-glass-border);
+}
+
+.umb-card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--umb-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--umb-space-sm);
+}
+
+.umb-card-subtitle {
+    font-size: 14px;
+    color: var(--umb-text-secondary);
+    margin: var(--umb-space-xs) 0 0 0;
+}
+
+.umb-card-body {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   BUTTONS - Cyberpunk Style
+   ============================================ */
+.umb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--umb-space-sm);
+    padding: var(--umb-space-sm) var(--umb-space-lg);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--umb-radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--umb-transition-fast);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.umb-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.umb-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.umb-btn-primary {
+    background: rgba(138, 43, 226, 0.1);
+    color: #b794f6;
+    border: 2px solid #8b5cf6;
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.2);
+}
+
+.umb-btn-primary:hover {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: #a78bfa;
+    color: #ddd6fe;
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.umb-btn-secondary {
+    background: var(--umb-glass-bg);
+    color: var(--umb-cyan);
+    border: 1px solid var(--umb-cyan);
+}
+
+.umb-btn-secondary:hover {
+    background: var(--umb-glass-hover);
+    box-shadow: 0 0 12px var(--umb-cyan-glow);
+}
+
+.umb-btn-danger {
+    background: var(--umb-glass-bg);
+    color: var(--umb-danger);
+    border: 1px solid var(--umb-danger);
+}
+
+.umb-btn-danger:hover {
+    background: rgba(255, 51, 102, 0.1);
+    box-shadow: 0 0 12px rgba(255, 51, 102, 0.3);
+}
+
+.umb-btn-small {
+    padding: var(--umb-space-xs) var(--umb-space-md);
+    font-size: 12px;
+}
+
+.umb-btn-large {
+    padding: var(--umb-space-md) var(--umb-space-xl);
+    font-size: 16px;
+}
+
+.umb-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   BADGES - Network & Status Indicators
+   ============================================ */
+.umb-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--umb-space-xs);
+    padding: var(--umb-space-xs) var(--umb-space-md);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: var(--umb-radius-full);
+    border: 1px solid;
+}
+
+.umb-badge-mainnet {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--umb-success);
+    border-color: var(--umb-success);
+}
+
+.umb-badge-preprod {
+    background: rgba(255, 170, 0, 0.1);
+    color: var(--umb-warning);
+    border-color: var(--umb-warning);
+}
+
+.umb-badge-active {
+    background: rgba(0, 230, 255, 0.1);
+    color: var(--umb-cyan);
+    border-color: var(--umb-cyan);
+}
+
+.umb-badge-archived {
+    background: rgba(160, 160, 160, 0.1);
+    color: var(--umb-text-secondary);
+    border-color: var(--umb-text-muted);
+}
+
+.umb-badge-published {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--umb-success);
+    border-color: var(--umb-success);
+}
+
+.umb-badge-draft {
+    background: rgba(255, 170, 0, 0.1);
+    color: var(--umb-warning);
+    border-color: var(--umb-warning);
+}
+
+/* Pulsing dot indicator */
+.umb-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ============================================
+   STATS GRID - Dashboard Metrics
+   ============================================ */
+.umb-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--umb-space-md);
+    margin-bottom: var(--umb-space-lg);
+}
+
+.umb-stat-card {
+    background: var(--umb-glass-bg);
+    border: 1px solid var(--umb-glass-border);
+    border-radius: var(--umb-radius-md);
+    padding: var(--umb-space-lg);
+    text-align: center;
+    transition: all var(--umb-transition-base);
+}
+
+.umb-stat-card:hover {
+    border-color: var(--umb-cyan);
+    box-shadow: 0 0 16px var(--umb-cyan-glow);
+}
+
+.umb-stat-label {
+    font-size: 12px;
+    color: var(--umb-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--umb-space-xs);
+}
+
+.umb-stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--umb-cyan);
+    line-height: 1.2;
+}
+
+.umb-stat-value-large {
+    font-size: 48px;
+    background: linear-gradient(135deg, var(--umb-cyan) 0%, var(--umb-magenta) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.umb-stat-subtext {
+    font-size: 12px;
+    color: var(--umb-text-muted);
+    margin-top: var(--umb-space-xs);
+}
+
+/* ============================================
+   DATA DISPLAY - Addresses, Keys, Hashes
+   ============================================ */
+.umb-data-display {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--umb-glass-border);
+    border-radius: var(--umb-radius-md);
+    padding: var(--umb-space-md);
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--umb-cyan);
+    word-break: break-all;
+    position: relative;
+}
+
+.umb-data-display-with-copy {
+    display: flex;
+    align-items: center;
+    gap: var(--umb-space-sm);
+}
+
+.umb-data-text {
+    flex: 1;
+}
+
+.umb-copy-btn {
+    background: rgba(138, 43, 226, 0.1);
+    border: 2px solid #8b5cf6;
+    color: #b794f6;
+    padding: var(--umb-space-xs) var(--umb-space-sm);
+    border-radius: var(--umb-radius-sm);
+    cursor: pointer;
+    transition: all var(--umb-transition-fast);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.umb-copy-btn:hover {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: #a78bfa;
+    color: #ddd6fe;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+}
+
+.umb-copy-btn.copied {
+    background: var(--umb-success);
+    border-color: var(--umb-success);
+    color: white;
+}
+
+/* ============================================
+   COLLAPSIBLE SECTIONS - Accordions
+   ============================================ */
+.umb-collapsible {
+    background: var(--umb-glass-bg);
+    border: 1px solid var(--umb-glass-border);
+    border-radius: var(--umb-radius-md);
+    margin-bottom: var(--umb-space-md);
+    overflow: hidden;
+}
+
+.umb-collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--umb-space-md) var(--umb-space-lg);
+    cursor: pointer;
+    transition: all var(--umb-transition-fast);
+    user-select: none;
+}
+
+.umb-collapsible-header:hover {
+    background: var(--umb-glass-hover);
+}
+
+.umb-collapsible-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--umb-text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--umb-space-sm);
+}
+
+.umb-collapsible-icon {
+    transition: transform var(--umb-transition-base);
+    color: var(--umb-cyan);
+}
+
+.umb-collapsible.open .umb-collapsible-icon {
+    transform: rotate(180deg);
+}
+
+.umb-collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--umb-transition-slow);
+    border-top: 1px solid transparent;
+}
+
+.umb-collapsible.open .umb-collapsible-content {
+    max-height: 2000px;
+    border-top-color: var(--umb-glass-border);
+}
+
+.umb-collapsible-body {
+    padding: var(--umb-space-lg);
+}
+
+/* ============================================
+   GRID LAYOUTS - Responsive Cards
+   ============================================ */
+.umb-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--umb-space-lg);
+}
+
+.umb-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--umb-space-md);
+}
+
+/* ============================================
+   LOADING STATES - Skeletons & Spinners
+   ============================================ */
+.umb-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--umb-space-2xl);
+    color: var(--umb-text-secondary);
+}
+
+.umb-spinner {
+    border: 3px solid var(--umb-glass-border);
+    border-top-color: var(--umb-cyan);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.umb-skeleton {
+    background: linear-gradient(90deg, var(--umb-glass-bg) 25%, var(--umb-glass-hover) 50%, var(--umb-glass-bg) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: var(--umb-radius-md);
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.umb-skeleton-text {
+    height: 16px;
+    margin-bottom: var(--umb-space-sm);
+}
+
+.umb-skeleton-title {
+    height: 24px;
+    width: 60%;
+    margin-bottom: var(--umb-space-md);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.umb-text-center { text-align: center; }
+.umb-text-right { text-align: right; }
+.umb-text-muted { color: var(--umb-text-muted); }
+.umb-text-secondary { color: var(--umb-text-secondary); }
+
+.umb-mb-sm { margin-bottom: var(--umb-space-sm); }
+.umb-mb-md { margin-bottom: var(--umb-space-md); }
+.umb-mb-lg { margin-bottom: var(--umb-space-lg); }
+
+.umb-mt-sm { margin-top: var(--umb-space-sm); }
+.umb-mt-md { margin-top: var(--umb-space-md); }
+.umb-mt-lg { margin-top: var(--umb-space-lg); }
+
+.umb-flex { display: flex; }
+.umb-flex-center { display: flex; align-items: center; justify-content: center; }
+.umb-flex-between { display: flex; justify-content: space-between; align-items: center; }
+.umb-flex-gap { gap: var(--umb-space-md); }
+
+.umb-hidden { display: none; }
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .umbrella-admin-page {
+        padding: var(--umb-space-md);
+    }
+
+    .umb-grid-2,
+    .umb-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .umb-stat-value-large {
+        font-size: 32px;
+    }
+}

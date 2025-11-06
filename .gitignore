@@ -1,0 +1,72 @@
+# WordPress
+.htaccess
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/
+wp-content/cache/supercache/
+
+# Local development
+*.log
+*.sql
+*.sqlite
+debug.log
+error_log
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.phpintel/
+*.code-workspace
+
+# Node (if you add any build tools later)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Composer
+vendor/
+composer.lock
+
+# Build artifacts
+*.zip
+*.tar.gz
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Environment files (API keys should never be committed)
+.env
+.env.local
+.env.production
+.env.development
+
+# Plugin-specific
+# (Add any temp files your plugin creates)
+tree.txt
