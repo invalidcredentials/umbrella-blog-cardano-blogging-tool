@@ -1,4 +1,4 @@
-# Umbrella Blog 🌂
+# Umbrella Blog
 
 **Sign and authenticate your web content with cryptographic proof.**
 
@@ -11,7 +11,7 @@ A WordPress blogging plugin that provides what every writer needs: a simple way 
 
 ---
 
-## 🎯 The Problem This Solves
+## The Problem This Solves
 
 Ever write something online and wish you had a permanent, tamper-proof receipt proving you wrote it at that exact moment?
 
@@ -19,24 +19,24 @@ Traditional publishing has no built-in proof of authorship. Anyone can copy your
 
 **Umbrella Blog changes that.**
 
-## ✨ What Makes This Special
+## What Makes This Special
 
 This isn't just another WordPress blog plugin. Umbrella Blog combines:
 
-- ⛓️ **True Native Cardano Integration** - Server-side signing using PHP, not browser extensions
-- 🎯 **One-Click Signing** - No wallet popups, no complex words, just click "Sign Post"
-- 🔐 **Server-Side Wallet** - Fund once with a few dollars, sign hundreds of posts
-- 🎭 **ADA Handle Integration** - Your $handle becomes your author identity
-- 📝 **Distraction-Free Writing** - Markdown + Rich Text editors, no Gutenberg bloat
-- 🎨 **Cyberpunk UI** - Beautiful dark glassmorphic theme with neon accents
-- 🚀 **Complete SEO Suite** - Meta tags, Open Graph, Twitter Cards, JSON-LD
-- ⚡ **Lightning Fast** - Custom database tables, no WordPress CPT overhead
+- **True Native Cardano Integration** - Server-side signing using PHP, not browser extensions
+- **One-Click Signing** - No wallet popups, no complex words, just click "Sign Post"
+- **Server-Side Wallet** - Fund once with a few dollars, sign hundreds of posts
+- **ADA Handle Integration** - Your $handle becomes your author identity
+- **Distraction-Free Writing** - Markdown + Rich Text editors, no Gutenberg bloat
+- **Cyberpunk UI** - Beautiful dark glassmorphic theme with neon accents
+- **Complete SEO Suite** - Meta tags, Open Graph, Twitter Cards, JSON-LD
+- **Lightning Fast** - Custom database tables, no WordPress CPT overhead
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
-### 📝 Writing & Editing
+### Writing & Editing
 
 - **Dual Editor Modes** - Toggle between Markdown (with live preview) and Rich Text
 - **Draft/Publish Workflow** - Save drafts or publish immediately
@@ -45,7 +45,7 @@ This isn't just another WordPress blog plugin. Umbrella Blog combines:
 - **Image Upload** - Drag-and-drop image management for posts
 - **Clean Interface** - Focus on writing, not fighting with the editor
 
-### ⛓️ Cardano Blockchain Integration
+### Cardano Blockchain Integration
 
 **How it works:**
 
@@ -69,7 +69,7 @@ The plugin creates a server-side Cardano wallet that you fund with a few dollars
 - [Anvil API](https://ada-anvil.io) - Transaction building and submission
 - [Blockfrost](https://blockfrost.io) - Blockchain queries and ADA Handle lookup
 
-### 🔍 SEO & Metadata
+### SEO & Metadata
 
 - **Complete Meta Tags** - Title, description, keywords, robots
 - **Open Graph Protocol** - Beautiful previews on Facebook, LinkedIn, Discord
@@ -80,7 +80,7 @@ The plugin creates a server-side Cardano wallet that you fund with a few dollars
 - **Focus Keywords** - Track primary SEO keywords per post
 - **Character Counters** - Live feedback for optimal meta tag lengths
 
-### 🎨 Design & Theming
+### Design & Theming
 
 - **Cyberpunk Theme** - Dark glassmorphic design with neon cyan/magenta accents
 - **Color Presets** - 6 built-in themes (Cyberpunk, Matrix, Sunset, Ocean, Purple, Fire)
@@ -91,7 +91,7 @@ The plugin creates a server-side Cardano wallet that you fund with a few dollars
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Requirements
 
@@ -139,7 +139,7 @@ This registers the `/blog/` URLs.
 
 ---
 
-## 💼 Cardano Wallet Setup
+## Cardano Wallet Setup
 
 ### Generate New Wallet
 
@@ -173,7 +173,7 @@ This registers the `/blog/` URLs.
 
 ---
 
-## ✍️ Writing Your First Post
+## Writing Your First Post
 
 ### Create Post
 
@@ -198,7 +198,7 @@ This registers the `/blog/` URLs.
 
 ---
 
-## ⛓️ Signing Posts on Cardano
+## Signing Posts on Cardano
 
 ### Prerequisites
 
@@ -563,13 +563,13 @@ This isn't just for tech people. This is for writers, journalists, researchers, 
 
 ---
 
-**Built with 💙 for writers who value authenticity and immutability.**
+**Built for writers who value authenticity and immutability.**
 
-**Powered by Cardano ⛓️**
+**Powered by Cardano**
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 - **Cardano Official**: https://cardano.org
 - **ADA Handles**: https://adahandle.com
