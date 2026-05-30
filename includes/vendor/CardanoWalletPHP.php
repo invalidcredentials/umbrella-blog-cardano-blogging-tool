@@ -21,6 +21,8 @@
 // Namespace removed for Umbrella Blog standalone compatibility
 // Was: namespace CardanoMintPay\Helpers;
 
+if ( class_exists( 'CardanoWalletPHP', false ) ) return;
+
 require_once __DIR__ . '/Ed25519Compat.php';
 
 class CardanoWalletPHP
