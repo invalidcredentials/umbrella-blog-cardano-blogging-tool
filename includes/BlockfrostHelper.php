@@ -255,7 +255,7 @@ class UmbrellaBlog_BlockfrostHelper {
     private static function resolveIpfsUrl($url) {
         if (strpos($url, 'ipfs://') === 0) {
             $cid = substr($url, 7);
-            return 'https://ipfs.io/ipfs/' . $cid;
+            return 'https://ipfs.blockfrost.dev/ipfs/' . $cid;
         }
         return $url;
     }
